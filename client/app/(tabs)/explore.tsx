@@ -35,6 +35,7 @@ export default function TabTwoScreen() {
       <ThemedText>
         This app includes example code to help you get started.
       </ThemedText>
+
       <Collapsible title="File-based routing">
         <ThemedText>
           This app has two screens:{" "}
@@ -42,15 +43,18 @@ export default function TabTwoScreen() {
           and{" "}
           <ThemedText type="defaultSemiBold">app/(tabs)/explore.tsx</ThemedText>
         </ThemedText>
+
         <ThemedText>
           The layout file in{" "}
           <ThemedText type="defaultSemiBold">app/(tabs)/_layout.tsx</ThemedText>{" "}
           sets up the tab navigator.
         </ThemedText>
+
         <ExternalLink href="https://docs.expo.dev/router/introduction">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
+
       <Collapsible title="Android, iOS, and web support">
         <ThemedText>
           You can open this project on Android, iOS, and the web. To open the
@@ -58,6 +62,7 @@ export default function TabTwoScreen() {
           in the terminal running this project.
         </ThemedText>
       </Collapsible>
+
       <Collapsible title="Images">
         <ThemedText>
           For static images, you can use the{" "}
@@ -67,12 +72,14 @@ export default function TabTwoScreen() {
         </ThemedText>
         <Image
           source={require("@/assets/images/react-logo.png")}
-          style={{ width: 100, height: 100, alignSelf: "center" }}
+          style={styles.image}
         />
+
         <ExternalLink href="https://reactnative.dev/docs/images">
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
+
       <Collapsible title="Light and dark mode components">
         <ThemedText>
           This template has light and dark mode support. The{" "}
@@ -84,6 +91,7 @@ export default function TabTwoScreen() {
           <ThemedText type="link">Learn more</ThemedText>
         </ExternalLink>
       </Collapsible>
+
       <Collapsible title="Animations">
         <ThemedText>
           This template includes an example of an animated component. The{" "}
@@ -96,6 +104,7 @@ export default function TabTwoScreen() {
           </ThemedText>{" "}
           library to create a waving hand animation.
         </ThemedText>
+
         {Platform.select({
           ios: (
             <ThemedText>
@@ -122,5 +131,10 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: "row",
     gap: 8,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    alignSelf: "center",
   },
 });
