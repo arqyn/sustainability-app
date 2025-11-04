@@ -1,7 +1,14 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { FONT_SIZES, FONT_WEIGHTS, SPACING, COLORS } from "../../styles/theme";
 
 export default function HomeScreen() {
+  const friends = [
+    { name: "🐒 Monkey D Luffy", streak: 2 },
+    { name: "⚔️ Roronoa Zoro", streak: 1 },
+    { name: "🫧 Nami", streak: 3 },
+  ];
+
   return (
     <View style={styles.container}>
       {/* Profile Section */}
@@ -32,12 +39,8 @@ export default function HomeScreen() {
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>Friend Streaks</Text>
 
-        {/* Refactored to use a loop as suggested by my mitar */}
-        {[
-          { name: "🐒 Monkey D Luffy", streak: 2 },
-          { name: "⚔️ Roronoa Zoro", streak: 1 },
-          { name: "🤠 Nami", streak: 3 },
-        ].map((friend, index) => (
+        {/* Refactored to use map loop as suggested by @mitarnik04 */}
+        {friends.map((friend, index) => (
           <View key={index} style={styles.friendRow}>
             <Text style={styles.friendName}>{friend.name}</Text>
             <Text style={styles.friendStreak}>🔥 {friend.streak}</Text>
@@ -52,7 +55,7 @@ export default function HomeScreen() {
 
       {/* Floating Add Button */}
       <TouchableOpacity style={styles.addButton}>
-        <Ionicons name="add" size={32} color="white" />
+        <Ionicons name="add" size={32} color={COLORS.white} />
       </TouchableOpacity>
     </View>
   );
@@ -61,23 +64,23 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#b3d4e0",
-    padding: 16,
+    backgroundColor: COLORS.background,
+    padding: SPACING.md,
   },
   card: {
-    backgroundColor: "#fff",
+    backgroundColor: COLORS.white,
     borderRadius: 12,
-    padding: 16,
-    marginBottom: 16,
+    padding: SPACING.md,
+    marginBottom: SPACING.md,
     elevation: 2,
   },
   name: {
-    fontSize: 18,
-    fontWeight: "bold",
+    fontSize: FONT_SIZES.large,
+    fontWeight: FONT_WEIGHTS.bold,
   },
   level: {
-    color: "gray",
-    marginBottom: 8,
+    color: COLORS.textGray,
+    marginBottom: SPACING.sm,
   },
   progressBar: {
     height: 6,
@@ -87,13 +90,13 @@ const styles = StyleSheet.create({
   progressFill: {
     height: "100%",
     width: "10%",
-    backgroundColor: "#4caf50",
+    backgroundColor: COLORS.primary,
     borderRadius: 5,
   },
   sectionTitle: {
-    fontWeight: "bold",
-    fontSize: 16,
-    marginBottom: 8,
+    fontWeight: FONT_WEIGHTS.bold,
+    fontSize: FONT_SIZES.medium,
+    marginBottom: SPACING.sm,
   },
   impactContainer: {
     flexDirection: "row",
@@ -102,40 +105,40 @@ const styles = StyleSheet.create({
   impactBoxGreen: {
     backgroundColor: "#e8f5e9",
     flex: 1,
-    padding: 10,
+    padding: SPACING.sm,
     borderRadius: 8,
-    marginRight: 8,
+    marginRight: SPACING.sm,
     alignItems: "center",
   },
   impactBoxOrange: {
     backgroundColor: "#fff3e0",
     flex: 1,
-    padding: 10,
+    padding: SPACING.sm,
     borderRadius: 8,
-    marginLeft: 8,
+    marginLeft: SPACING.sm,
     alignItems: "center",
   },
   impactText: {
-    marginTop: 4,
-    fontSize: 14,
-    fontWeight: "500",
+    marginTop: SPACING.xs,
+    fontSize: FONT_SIZES.regular,
+    fontWeight: FONT_WEIGHTS.medium,
   },
   friendRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    paddingVertical: 4,
+    paddingVertical: SPACING.xs,
   },
   friendName: {
-    fontSize: 14,
+    fontSize: FONT_SIZES.regular,
   },
   friendStreak: {
-    fontSize: 14,
+    fontSize: FONT_SIZES.regular,
   },
   addButton: {
     position: "absolute",
-    bottom: 24,
-    right: 24,
-    backgroundColor: "#4caf50",
+    bottom: SPACING.lg,
+    right: SPACING.lg,
+    backgroundColor: COLORS.primary,
     width: 56,
     height: 56,
     borderRadius: 28,
