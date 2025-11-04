@@ -31,14 +31,18 @@ export default function HomeScreen() {
       {/* Friend Streaks Section */}
       <View style={styles.card}>
         <Text style={styles.sectionTitle}>Friend Streaks</Text>
-        <View style={styles.friendRow}>
-          <Text style={styles.friendName}>🐒 Monkey D Luffy</Text>
-          <Text style={styles.friendStreak}>🔥 2</Text>
-        </View>
-        <View style={styles.friendRow}>
-          <Text style={styles.friendName}>⚔️ Roronoa Zoro</Text>
-          <Text style={styles.friendStreak}>🔥 1</Text>
-        </View>
+
+        {/* Refactored to use a loop as suggested by my mitar */}
+        {[
+          { name: "🐒 Monkey D Luffy", streak: 2 },
+          { name: "⚔️ Roronoa Zoro", streak: 1 },
+          { name: "🤠 Nami", streak: 3 },
+        ].map((friend, index) => (
+          <View key={index} style={styles.friendRow}>
+            <Text style={styles.friendName}>{friend.name}</Text>
+            <Text style={styles.friendStreak}>🔥 {friend.streak}</Text>
+          </View>
+        ))}
       </View>
 
       {/* Achievements Section */}
